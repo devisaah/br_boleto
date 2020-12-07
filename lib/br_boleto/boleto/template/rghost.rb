@@ -206,7 +206,7 @@ module BrBoleto
           doc.show boleto.codigo_barras.linha_digitavel, tag: :grande
 
           move_more(doc, -6.5, -0.9)
-          doc.show boleto.local_pagamento
+          doc.show boleto.local_pagamento if boleto.local_pagamento
 
           move_more(doc, 15.8, 0)
           doc.show boleto.data_vencimento.to_s_br if boleto.data_vencimento
