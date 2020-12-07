@@ -66,6 +66,47 @@ module BrBoleto
 	
 	autoload :Pagador
 
+	class Configuration
+		# Gerador de arquivo de boleto.
+		# @return [Symbol]
+		# @param  [Symbol] (Padrão: :rghost)
+		attr_accessor :gerador
+		# Formato do arquivo de boleto a ser gerado.
+		# @return [Symbol]
+		# @param  [Symbol] (Padrão: :pdf)
+		# @see http://wiki.github.com/shairontoledo/rghost/supported-devices-drivers-and-formats Veja mais formatos na documentação do rghost.
+		attr_accessor :formato
+	
+		# Resolução em pixels do arquivo gerado.
+		# @return [Integer]
+		# @param  [Integer] (Padrão: 150)
+		attr_accessor :resolucao
+	
+		# Ajusta o encoding do texto do boleto enviado para o GhostScript
+		# O valor 'ascii-8bit' evita problemas com acentos e cedilha
+		# @return [String]
+		# @param  [String] (Padrão: nil)
+		attr_accessor :external_encoding
+	
+		# Atribui valores padrões de configuração
+		def initialize
+		  self.gerador = :rghost
+		  self.formato = :pdf
+		  self.resolucao = 150
+		  self.external_encoding = 'ascii-8bit'
+		end
+	  end
+	
+	  # Atribui os valores customizados para as configurações.
+	  def self.configuration
+		@configuration ||= Configuration.new
+	  end
+	
+	  # Bloco para realizar configurações customizadas.
+	  def self.setup
+		yield(configuration)
+	  end
+
 
 	module Conta
 		extend ActiveSupport::Autoload

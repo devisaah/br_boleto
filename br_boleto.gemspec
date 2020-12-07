@@ -19,6 +19,8 @@ Gem::Specification.new do |gem|
   # gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.require_paths = ["lib"]
 
+  gem.requirements = ['GhostScript > 9.0, para gear PDF e código de Barras']
+
   gem.required_ruby_version = '>= 2.2.0'
 
 
@@ -26,4 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "activesupport", '>= 5.0.0'
   gem.add_dependency "activemodel",   '>= 5.0.0'
   gem.add_dependency 'unidecoder', '~> 1.1'
+  gem.add_dependency 'rghost', '~> 0.9'
+  gem.add_dependency 'rghost_barcode', '~> 0.9'
+  gem.add_dependency 'parseline', '~> 1.0.3'
 end

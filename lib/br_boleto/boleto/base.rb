@@ -8,6 +8,13 @@ module BrBoleto
 			include BrBoleto::Calculos
 			include BrBoleto::HaveConta
 			include BrBoleto::HavePagador
+			extend Template::Base
+
+			# Configura gerador de arquivo de boleto e código de barras.
+			define_template(Brcobranca.configuration.gerador).each do |klass|
+				extend klass
+				include klass
+			end
 
 			# Data do vencimento do boleto. Campo auto explicativo.
 			#
@@ -354,6 +361,23 @@ module BrBoleto
 			def data_vencimento_deve_ser_uma_data
 				errors.add(:data_vencimento, :invalid) unless data_vencimento.kind_of?(Date)
 			end
+
+			# Nome da classe do boleto
+			# @return [String]
+			def class_name
+				self.class.to_s.split('::').last.downcase
+			end
+
+			# Logotipo do banco
+			# @return [Path] Caminho para o arquivo de logotipo do banco.
+			def logotipo
+				if BrBoleto.configuration.gerador == :rghost_carne
+					File.join(File.dirname(__FILE__), '..', 'arquivos', 'logos', "#{class_name}_carne.eps")
+				else
+					File.join(File.dirname(__FILE__), '..', 'arquivos', 'logos', "#{class_name}.eps")
+				end
+			end
+	  
 		end
 	end
 end
