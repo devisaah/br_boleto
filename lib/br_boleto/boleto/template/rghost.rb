@@ -247,7 +247,7 @@ module BrBoleto
           doc.show boleto.nosso_numero_codigo_de_barras
 
           move_more(doc, -12.1, -0.8)
-          if boleto.variacao
+          if boleto.try(:variacao)
             doc.show "#{boleto.carteira}-#{boleto.variacao}"
           else
             doc.show boleto.carteira
