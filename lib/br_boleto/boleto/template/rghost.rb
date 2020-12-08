@@ -259,7 +259,7 @@ module BrBoleto
           move_more(doc, 10.1, 0)
           doc.show boleto.valor_documento.to_currency
 
-          if boleto.instrucoes
+          if boleto.try(:instrucoes)
             doc.text_area boleto.instrucoes, width: '14 cm', text_align: :left, x: "#{@x -= 15.8} cm", y: "#{@y -= 0.9} cm", row_height: '0.4 cm'
             move_more(doc, 0, -2)
           else
