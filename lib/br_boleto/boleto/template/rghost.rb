@@ -145,7 +145,7 @@ module BrBoleto
           # Dados
 
           move_more(doc, 4.84, 0.02)
-          doc.show "#{boleto.codigo_banco}-#{boleto.codigo_banco_dv}", tag: :maior
+          doc.show "#{boleto.conta.codigo_banco}-#{boleto.conta.codigo_banco_dv}", tag: :maior
           move_more(doc, 2, 0)
           doc.show boleto.linha_digitavel, tag: :grande
           move_more(doc, -6.5, -0.83)
@@ -153,7 +153,7 @@ module BrBoleto
           doc.show boleto.conta.nome
 
           move_more(doc, 15.8, 0)
-          doc.show boleto.codigo_banco_dv
+          doc.show boleto.conta.codigo_banco_dv
 
           move_more(doc, -15.8, -0.9)
           doc.show boleto.conta.endereco

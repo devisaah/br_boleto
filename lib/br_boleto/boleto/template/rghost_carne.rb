@@ -178,7 +178,7 @@ module BrBoleto
 
           # Numero do banco
           doc.moveto x: colunas[1], y: linhas[0]
-          doc.show "#{boleto.codigo_banco}-#{boleto.codigo_banco_dv}"
+          doc.show "#{boleto.conta.codigo_banco}-#{boleto.conta.codigo_banco_dv}"
 
           # vencimento
           doc.moveto x: colunas[0], y: linhas[1]
@@ -212,7 +212,7 @@ module BrBoleto
 
           # Numero do banco
           doc.moveto x: colunas[4], y: linhas[0]
-          doc.show "#{boleto.codigo_banco}-#{boleto.codigo_banco_dv}", tag: :grande
+          doc.show "#{boleto.conta.codigo_banco}-#{boleto.conta.codigo_banco_dv}", tag: :grande
 
           # linha digitavel
           doc.moveto x: colunas[6], y: linhas[0]
@@ -220,7 +220,7 @@ module BrBoleto
 
           # local de pagamento
           doc.moveto x: colunas[2], y: linhas[1]
-          doc.show boleto.local_pagamento unless boleto.local_pagamento.nil?
+          doc.show boleto.local_pagamento gi
 
           # vencimento
           doc.moveto x: colunas[11], y: linhas[1]
