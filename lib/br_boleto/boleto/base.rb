@@ -12,7 +12,7 @@ module BrBoleto
 			extend Template::Base
 
 			# Configura gerador de arquivo de boleto e código de barras.
-			define_template(Brcobranca.configuration.gerador).each do |klass|
+			define_template(BrBoleto.configuration.gerador).each do |klass|
 				extend klass
 				include klass
 			end
