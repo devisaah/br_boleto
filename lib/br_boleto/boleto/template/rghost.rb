@@ -16,6 +16,8 @@ rescue LoadError
   require 'rghost_barcode'
 end
 
+require 'br_boleto/helper/currency'
+
 module BrBoleto
   module Boleto
     module Template
@@ -177,7 +179,7 @@ module BrBoleto
           doc.show boleto.data_vencimento.try(:strftime, '%d/%m/%Y')
 
           move_more(doc, 5, 0)
-          doc.show BrBoleto::Helper::Currency::Number.new(boleto.valor_documento).to_currency
+          doc.show boleto.valor_documento.to_currency
 
           move_more(doc, -15, -1.3)
           doc.show "#{boleto.pagador.nome} - #{BrBoleto::Helper::CpfCnpj.new(boleto.pagador.cpf_cnpj).com_formatacao}" if boleto.pagador && boleto.pagador.cpf_cnpj
@@ -254,7 +256,7 @@ module BrBoleto
           doc.show boleto.especie
 
           move_more(doc, 10.1, 0)
-          doc.show BrBoleto::Helper::Currency::Number.new(boleto.valor_documento).to_currency
+          doc.show boleto.valor_documento.to_currency
 
           if boleto.instrucoes
             doc.text_area boleto.instrucoes, width: '14 cm', text_align: :left, x: "#{@x -= 15.8} cm", y: "#{@y -= 0.9} cm", row_height: '0.4 cm'
