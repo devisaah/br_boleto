@@ -248,9 +248,9 @@ module BrBoleto
 
           move_more(doc, -12.1, -0.8)
           if boleto.try(:variacao)
-            doc.show "#{boleto.carteira}-#{boleto.variacao}"
+            doc.show "#{boleto.conta.carteira}-#{boleto.variacao}"
           else
-            doc.show boleto.carteira
+            doc.show boleto.conta.carteira
           end
 
           move_more(doc, 2, 0)
