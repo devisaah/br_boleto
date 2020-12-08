@@ -62,6 +62,7 @@ module BrBoleto
 		autoload :Number
 		autoload :FormatValue
 		autoload :FormatData
+		autoload :Currency
 	end
 
 	
