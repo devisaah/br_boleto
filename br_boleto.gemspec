@@ -27,8 +27,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rake", '>= 0.8.7'
   gem.add_dependency "activesupport", '>= 5.0.0'
   gem.add_dependency "activemodel",   '>= 5.0.0'
-  gem.add_dependency 'unidecoder', '~> 1.1'
-  gem.add_dependency 'rghost', '~> 0.9'
-  gem.add_dependency 'rghost_barcode', '~> 0.9'
-  gem.add_dependency 'parseline', '~> 1.0.3'
+  gem.add_dependency 'unidecoder', '>= 1.1'
+  gem.add_dependency 'rghost'
+  gem.add_dependency 'rghost_barcode'
+  gem.add_dependency 'parseline', '>= 1.0.3'
 end
