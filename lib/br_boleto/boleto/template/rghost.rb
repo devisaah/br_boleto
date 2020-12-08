@@ -150,7 +150,7 @@ module BrBoleto
           doc.show boleto.linha_digitavel, tag: :grande
           move_more(doc, -6.5, -0.83)
 
-          doc.show boleto.conta.nome
+          doc.show boleto.conta.razao_social
 
           move_more(doc, 15.8, 0)
           doc.show boleto.conta.codigo_banco_dv
@@ -215,10 +215,10 @@ module BrBoleto
           if boleto.conta.endereco
             doc.show boleto.conta.endereco
             move_more(doc, 1.2, 0.3)
-            doc.show boleto.conta.nome
+            doc.show boleto.conta.razao_social
             move_more(doc, -1.2, -0.3)
           else
-            doc.show boleto.conta.nome
+            doc.show boleto.conta.razao_social
           end
 
           move_more(doc, 15.8, 0)
