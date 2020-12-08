@@ -203,7 +203,7 @@ module BrBoleto
           doc.image boleto.logotipo, x: "#{@x} cm", y: "#{@y} cm"
 
           move_more(doc, 4.84, 0.01)
-          doc.show "#{boleto.banco}-#{boleto.banco_dv}", tag: :maior
+          doc.show "#{boleto.conta.codigo_banco}-#{boleto.conta.codigo_banco_dv}", tag: :maior
 
           move_more(doc, 2, 0)
           doc.show boleto.codigo_barras.linha_digitavel, tag: :grande
