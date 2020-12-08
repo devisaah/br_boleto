@@ -135,6 +135,13 @@ module BrBoleto
 		autoload :Itau
 		autoload :BancoBrasil
 		autoload :Santander
+
+		# Módulos para classes de template
+		module Template
+			autoload :Base,        'br_boleto/boleto/template/base'
+			autoload :Rghost,      'br_boleto/boleto/template/rghost'
+			autoload :RghostCarne, 'br_boleto/boleto/template/rghost_carne'
+		end
 	end
 
 

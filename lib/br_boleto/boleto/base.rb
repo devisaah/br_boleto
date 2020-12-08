@@ -8,6 +8,7 @@ module BrBoleto
 			include BrBoleto::Calculos
 			include BrBoleto::HaveConta
 			include BrBoleto::HavePagador
+			
 			extend Template::Base
 
 			# Configura gerador de arquivo de boleto e código de barras.
