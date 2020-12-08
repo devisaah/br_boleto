@@ -225,7 +225,7 @@ module BrBoleto
           end
 
           move_more(doc, 15.8, 0)
-          doc.show boleto.agencia_conta_boleto
+          doc.show boleto.try(:agencia_codigo_cedente)
 
           move_more(doc, -15.8 , -0.9)
           doc.show boleto.data_documento.strftime('%d/%m/%Y') if boleto.data_documento
