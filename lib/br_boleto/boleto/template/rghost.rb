@@ -241,7 +241,7 @@ module BrBoleto
 
           move_more(doc, 1.3, 0)
 
-          doc.show boleto.data_processamento.strftime('%d/%m/%Y') if boleto.data_processamento
+          doc.show boleto.data_documento.strftime('%d/%m/%Y') if boleto.data_documento
 
           move_more(doc, 3.5, 0)
           doc.show boleto.nosso_numero_codigo_de_barras
