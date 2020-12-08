@@ -61,6 +61,7 @@ module BrBoleto
 		autoload :CpfCnpj
 		autoload :Number
 		autoload :FormatValue
+		autoload :FormatData
 	end
 
 	

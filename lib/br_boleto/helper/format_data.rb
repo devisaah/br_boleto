@@ -1,3 +1,5 @@
+require 'date'
+
 module BrBoleto
 	module Helper
         class FormatData 
