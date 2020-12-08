@@ -290,8 +290,8 @@ module BrBoleto
           doc.show "#{boleto.pagador.endereco_formatado}"
 
           move_more(doc, 1.2, -0.93)
-          if boleto.nome_avalista && boleto.documento_avalista
-            doc.show "#{boleto.nome_avalista} - #{boleto.documento_avalista}"
+          if boleto.pagador.nome_avalista && boleto.pagador.documento_avalista
+            doc.show "#{boleto.pagador.nome_avalista} - #{boleto.pagador.documento_avalista}"
           end
           # FIM Segunda parte do BOLETO
         end
