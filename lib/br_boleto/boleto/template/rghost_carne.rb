@@ -271,7 +271,7 @@ module BrBoleto
 
           # quantidade
           doc.moveto x: colunas[7], y: linhas[4]
-          doc.show boleto.quantidade unless boleto.quantidade.nil?
+          doc.show boleto.try(:quantidade)
 
           # valor documento
           doc.moveto x: colunas[8], y: linhas[4]
