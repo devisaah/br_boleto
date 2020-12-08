@@ -186,8 +186,8 @@ module BrBoleto
 
           move_more(doc, 0, -0.3)
           doc.show "#{boleto.conta.endereco}"
-          if boleto.demonstrativo
-            doc.text_area boleto.demonstrativo, width: '18.5 cm', text_align: :left, x: "#{@x - 0.8} cm", y: "#{@y - 0.9} cm", row_height: '0.4 cm'
+          if boleto.try(:demonstrativo)
+            doc.text_area boleto.try(:demonstrativo), width: '18.5 cm', text_align: :left, x: "#{@x - 0.8} cm", y: "#{@y - 0.9} cm", row_height: '0.4 cm'
           end
           # FIM Primeira parte do BOLETO
         end
