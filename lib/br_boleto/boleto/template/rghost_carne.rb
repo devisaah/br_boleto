@@ -220,7 +220,7 @@ module BrBoleto
 
           # local de pagamento
           doc.moveto x: colunas[2], y: linhas[1]
-          doc.show boleto.local_pagamento gi
+          doc.show boleto.local_pagamento unless boleto.local_pagamento.nil?
 
           # vencimento
           doc.moveto x: colunas[11], y: linhas[1]
@@ -271,7 +271,7 @@ module BrBoleto
 
           # quantidade
           doc.moveto x: colunas[7], y: linhas[4]
-          doc.show boleto.quantidade if boleto.quantidade
+          doc.show boleto.quantidade unless boleto.quantidade.nil?
 
           # valor documento
           doc.moveto x: colunas[8], y: linhas[4]

@@ -168,7 +168,7 @@ module BrBoleto
           doc.show boleto.especie
 
           move_more(doc, 1.5, 0)
-          doc.show boleto.quantidade
+          doc.show boleto.quantidade unless boleto.quantidade.nil?
 
           move_more(doc, 2, 0)
           doc.show "#{BrBoleto::Helper::CpfCnpj.new(boleto.conta.cpf_cnpj).com_formatacao}"
