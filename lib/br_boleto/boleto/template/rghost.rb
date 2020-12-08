@@ -174,7 +174,7 @@ module BrBoleto
           doc.show "#{BrBoleto::Helper::CpfCnpj.new(boleto.conta.cpf_cnpj).com_formatacao}"
 
           move_more(doc, 3.8, 0)
-          doc.show boleto.data_vencimento.to_s_br
+          doc.show boleto.data_vencimento.try(:strftime, '%d/%m/%Y')
 
           move_more(doc, 5, 0)
           doc.show boleto.valor_documento.to_currency
@@ -209,7 +209,7 @@ module BrBoleto
           doc.show boleto.local_pagamento unless boleto.local_pagamento.nil?
 
           move_more(doc, 15.8, 0)
-          doc.show boleto.data_vencimento.to_s_br if boleto.data_vencimento
+          doc.show boleto.data_vencimento.try(:strftime, '%d/%m/%Y') if boleto.data_vencimento
 
           move_more(doc, -15.8, -0.8)
           if boleto.conta.endereco
@@ -225,7 +225,7 @@ module BrBoleto
           doc.show boleto.agencia_conta_boleto
 
           move_more(doc, -15.8 , -0.9)
-          doc.show boleto.data_documento.to_s_br if boleto.data_documento
+          doc.show boleto.data_documento.try(:strftime, '%d/%m/%Y') if boleto.data_documento
 
           move_more(doc, 3.5, 0)
           doc.show boleto.numero_documento
@@ -238,7 +238,7 @@ module BrBoleto
 
           move_more(doc, 1.3, 0)
 
-          doc.show boleto.data_processamento.to_s_br if boleto.data_processamento
+          doc.show boleto.data_processamento.try(:strftime, '%d/%m/%Y') if boleto.data_processamento
 
           move_more(doc, 3.5, 0)
           doc.show boleto.nosso_numero_codigo_de_barras

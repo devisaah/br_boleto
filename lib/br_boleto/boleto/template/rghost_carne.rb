@@ -182,7 +182,7 @@ module BrBoleto
 
           # vencimento
           doc.moveto x: colunas[0], y: linhas[1]
-          doc.show boleto.data_vencimento.to_s_br
+          doc.show boleto.data_vencimento.try(:strftime, '%d/%m/%Y')
 
           # agencia/codigo cedente
           doc.moveto x: colunas[0], y: linhas[2]
@@ -224,7 +224,7 @@ module BrBoleto
 
           # vencimento
           doc.moveto x: colunas[11], y: linhas[1]
-          doc.show boleto.data_vencimento.to_s_br
+          doc.show boleto.data_vencimento.try(:strftime, '%d/%m/%Y')
 
           # cedente
           doc.moveto x: colunas[2], y: linhas[2]
@@ -236,7 +236,7 @@ module BrBoleto
 
           # data do documento
           doc.moveto x: colunas[2], y: linhas[3]
-          doc.show boleto.data_documento.to_s_br if boleto.data_documento
+          doc.show boleto.data_documento.try(:strftime, '%d/%m/%Y') if boleto.data_documento
 
           # numero documento
           doc.moveto x: colunas[3], y: linhas[3]
@@ -252,7 +252,7 @@ module BrBoleto
 
           # dt processamento
           doc.moveto x: colunas[10], y: linhas[3]
-          doc.show boleto.data_processamento.to_s_br if boleto.data_processamento
+          doc.show boleto.data_processamento.try(:strftime, '%d/%m/%Y') if boleto.data_processamento
 
           # nosso numero
           doc.moveto x: colunas[11], y: linhas[3]
