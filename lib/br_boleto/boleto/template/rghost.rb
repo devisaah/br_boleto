@@ -206,7 +206,7 @@ module BrBoleto
           doc.show "#{boleto.conta.codigo_banco}-#{boleto.conta.codigo_banco_dv}", tag: :maior
 
           move_more(doc, 2, 0)
-          doc.show boleto.codigo_barras.linha_digitavel, tag: :grande
+          doc.show boleto.codigo_de_barras, tag: :grande
 
           move_more(doc, -6.5, -0.9)
           doc.show boleto.local_pagamento unless boleto.local_pagamento.nil?
