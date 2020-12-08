@@ -82,7 +82,7 @@ module BrBoleto
           modelo_generico_rodape(doc, boleto)
 
           # Gerando codigo de barra com rghost_barcode
-          doc.barcode_interleaved2of5(boleto.codigo_barras, width: '10.3 cm', height: '1.3 cm', x: "#{@x - 1.7} cm", y: "#{@y - 1.67} cm") if boleto.codigo_barras
+          doc.barcode_interleaved2of5(boleto.codigo_de_barras, width: '10.3 cm', height: '1.3 cm', x: "#{@x - 1.7} cm", y: "#{@y - 1.67} cm") if boleto.codigo_de_barras
 
           # Gerando stream
           formato = (options.delete(:formato) || BrBoleto.configuration.formato)
@@ -110,7 +110,7 @@ module BrBoleto
             modelo_generico_rodape(doc, boleto)
 
             # Gerando codigo de barra com rghost_barcode
-            doc.barcode_interleaved2of5(boleto.codigo_barras, width: '10.3 cm', height: '1.3 cm', x: "#{@x - 1.7} cm", y: "#{@y - 1.67} cm") if boleto.codigo_barras
+            doc.barcode_interleaved2of5(boleto.codigo_de_barras, width: '10.3 cm', height: '1.3 cm', x: "#{@x - 1.7} cm", y: "#{@y - 1.67} cm") if boleto.codigo_de_barras
 
             # Cria nova página se não for o último boleto
             doc.next_page unless index == boletos.length - 1
