@@ -281,7 +281,7 @@ module BrBoleto
 					dados = ''
 					dados << '1'                                                         # Identificação do arquivo remessa
 					dados << "#{conta.codigo_banco}".adjust_size_to(3, '0', :right)      # Número do Sicredi
-					dados << "#{conta.conta_corrente}".adjust_size_to(5, '0', :right)    # Código do beneficiário
+					dados << "#{conta.convenio}".adjust_size_to(5, '0', :right)    # Código do beneficiário
 					dados << ''.adjust_size_to(384)
 					dados
 				end
