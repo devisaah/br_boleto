@@ -32,11 +32,11 @@ module BrBoleto
 					# Header Posição: 027 até 046
 					elsif local == :header
 						# POSIÇÂO    TAM.  Descrição
-						# 027 a 031  005  Contas Corrente
+						# 027 a 031  005  Convênio
 						# 032 a 045  014  CPF/CNPJ
 						# 046 a 046  001  Branco
 						info = ''
-						info << "#{conta.conta_corrente}".adjust_size_to(5, '0', :right)
+						info << "#{conta.convenio}".adjust_size_to(5, '0', :right)
 						info << "#{conta.cpf_cnpj}".adjust_size_to(14, '0', :right)
 						info << ''.adjust_size_to(1)
 						info
